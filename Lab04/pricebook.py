@@ -7,7 +7,7 @@ def is_sorted(pricebook):
     Args:
         pricebook (list): A list of tuples containing price and product name.
     Return:
-        bool: True: it is sorted alphabetically, False: it isn't sorted alphabetically.
+        bool: True -> it is sorted alphabetically, False -> it isn't sorted alphabetically.
     """
     if len(pricebook) == 0:
         return True
@@ -52,7 +52,7 @@ def unsorted_get(pricebook, name):
     for price, product in pricebook:
         if product == name:
             return price
-    # If there are no matches between inputted name and the product namess in pricebook, nothing is returned
+    # If there are no matches between inputted name and the product names in pricebook, nothing is returned
     return None
 
 def unsorted_put(pricebook, name, price):
