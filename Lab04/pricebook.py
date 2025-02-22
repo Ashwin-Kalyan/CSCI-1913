@@ -1,3 +1,5 @@
+# @Author Ashwin Kalyan
+
 def is_sorted(pricebook):
     """
     Checks if a given pricebook's product names are sorted alphabetically.
@@ -38,9 +40,19 @@ def price_average(pricebook):
     return avg
 
 def unsorted_get(pricebook, name):
+    """
+    Uses linear search algorithm to check if the named product is in pricebook, then returns its price.
+
+    Args:
+        pricebook (list): An unsorted list of tuples containing price and product name.
+        name (str): Name of the product that user wants to find in pricebook.
+    Return:
+        price (float): If product is found, return the price of the product.
+    """
     for price, product in pricebook:
         if product == name:
             return price
+    # If there are no matches between inputted name and the product namess in pricebook, nothing is returned
     return None
 
 def unsorted_put(pricebook, name, price):
