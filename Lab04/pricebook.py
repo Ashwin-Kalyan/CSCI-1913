@@ -61,8 +61,8 @@ def unsorted_put(pricebook, name, price):
 
     Args:
         pricebook (list): An unsorted list of tuples containing price and product name.
-        name (str): Name of the product that user wants to find in pricebook.
-        price (float): New updated price for the product.
+        name (str): Name of the product that user wants to update in pricebook.
+        price (float): New updated price for the specified product.
     Return:
         None.
     """
@@ -75,6 +75,15 @@ def unsorted_put(pricebook, name, price):
     pricebook.append((price, name))
 
 def sorted_get(pricebook, name):
+    """
+    Uses binary search algorithm to find a product in a sorted pricebook.
+
+    Args:
+        pricebook (list): A sorted list of tuples containing price and product name.
+        name (str): Name of the product that user wants to find in pricebook.
+    Return:
+        None.
+    """
     low = 0
     high = len(pricebook) - 1
 
@@ -89,12 +98,14 @@ def sorted_get(pricebook, name):
     return None
 
 def sorted_put(pricebook, name, price):
+    # Loops through each index of pricebook, looking at the product name and price tuple as well
     for i, (list_price, product) in enumerate(pricebook):
+        # If product name is in pricebook, update the listing, then break loop
         if product == name:
             pricebook[i] = (price, product)
             return
     # If the product is not found, find the correct position to insert
-    for i, (p, product) in enumerate(pricebook):
+    for i, (list_price, product) in enumerate(pricebook):
         if product > name:
             pricebook.insert(i, (price, name))
             return
