@@ -47,7 +47,7 @@ def unsorted_get(pricebook, name):
         pricebook (list): An unsorted list of tuples containing price and product name.
         name (str): Name of the product that user wants to find in pricebook.
     Return:
-        price (float): If product is found, return the price of the product.
+        float: If product is found, return the price of the product.
     """
     for price, product in pricebook:
         if product == name:
@@ -56,9 +56,21 @@ def unsorted_get(pricebook, name):
     return None
 
 def unsorted_put(pricebook, name, price):
+    """
+    Finds the given product name inside pricebook, then updates its price once found.
+
+    Args:
+        pricebook (list): An unsorted list of tuples containing price and product name.
+        name (str): Name of the product that user wants to find in pricebook.
+        price (float): New updated price for the product.
+    Return:
+        None.
+    """
+    # Loops through each index of pricebook, looking at the product name and price tuple as well
     for i, (list_price, product) in enumerate(pricebook):
         if product == name:
             pricebook[i] = (price, product)
+            # Once match is found and price properly assigned, we want to break the loop
             return
     pricebook.append((price, name))
 
