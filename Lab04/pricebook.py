@@ -18,9 +18,17 @@ def is_sorted(pricebook):
     return True
 
 def price_average(pricebook):
+    """
+    Calculates the average of all product's prices within pricebook.
+
+    Args:
+        pricebook (list): A list of tuples containing price and product name.
+    Return:
+        float: The average of all prices in pricebook.
+    """
     if len(pricebook) == 0:
         return 0.0
-    
+    # Tracks the sum of all values in pricebook
     total = 0
 
     for i in range(0, len(pricebook)):
