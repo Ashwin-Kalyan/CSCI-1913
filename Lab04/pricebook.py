@@ -1,11 +1,20 @@
 def is_sorted(pricebook):
+    """
+    Checks if a given pricebook's product names are sorted alphabetically.
+
+    Args:
+        pricebook (list): A list of tuples containing price and product name.
+    Return:
+        bool: True: it is sorted alphabetically, False: it isn't sorted alphabetically.
+    """
     if len(pricebook) == 0:
         return True
 
     for i in range(1, len(pricebook)):
+        # Checks if the current product name is lexicographically smaller (nonalphabetical order) than the previous product name
         if pricebook[i][1] < pricebook[i - 1][1]:
-            return False
-    
+            return False  
+    # If there are no products that are out of alphabetical order, pricebook is sorted
     return True
 
 def price_average(pricebook):
@@ -18,18 +27,16 @@ def price_average(pricebook):
         total += pricebook[i][0]
 
     avg = float(total) / float(len(pricebook))
-
     return avg
 
 def unsorted_get(pricebook, name):
     for price, product in pricebook:
         if product == name:
             return price
-
     return None
 
 def unsorted_put(pricebook, name, price):
-    for i, (p, product) in enumerate(pricebook):
+    for i, (list_price, product) in enumerate(pricebook):
         if product == name:
             pricebook[i] = (price, product)
             return
@@ -47,11 +54,10 @@ def sorted_get(pricebook, name):
                 low = mid + 1
             else:
                 high = mid - 1
-    
     return None
 
 def sorted_put(pricebook, name, price):
-    for i, (p, product) in enumerate(pricebook):
+    for i, (list_price, product) in enumerate(pricebook):
         if product == name:
             pricebook[i] = (price, product)
             return
