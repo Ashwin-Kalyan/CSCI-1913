@@ -51,3 +51,16 @@ def no_letters(clues):
     # Sort alphabetically, convert the set to a sorted list, then to a string, then uppercase all letters
     no_letters_list = sorted(no_letters_set)
     return ''.join(no_letters_list).upper()
+
+def yes_letters(clues):
+    yes_letters_set = set()  # Use a set to avoid duplicates
+
+    for guess, clue in clues:  # Iterate over each (guess, clue) pair
+        for i in range(len(clue)):  # Iterate over each position in the clue
+            if clue[i] == 'green' or clue[i] == 'yellow':
+                # Add the letter to the set if it's green or yellow
+                yes_letters_set.add(guess[i])
+
+    # Sort alphabetically, convert the set to a sorted list, then to a string, then uppercase all letters
+    yes_letters_list = sorted(yes_letters_set)
+    return ''.join(yes_letters_list).upper()
