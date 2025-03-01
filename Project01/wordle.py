@@ -1,3 +1,7 @@
+from words import words
+import random
+import display_utility
+
 def check_word(secret, guess):
     output = [''] * len(guess) # Establish an output list of same length as guess
     secret_list = list(secret)
@@ -64,3 +68,41 @@ def yes_letters(clues):
     # Sort alphabetically, convert the set to a sorted list, then to a string, then uppercase all letters
     yes_letters_list = sorted(yes_letters_set)
     return ''.join(yes_letters_list).upper()
+
+if __name__ == "__main__":
+    secret_word = random.choice(words).upper()
+
+    guesses = []
+    clues = []
+
+    for attempt in range(6):  # Allows 6 guesses max
+        print(f"Known: {known_word(clues)}")
+        print(f"Green/Yellow Letters: {yes_letters(clues)}")
+        print(f"Grey Letters: {no_letters(clues)}") 
+
+        while True:
+            guess = input("> ").strip().upper()  # Get user input and format it
+            if len(guess) != 5:
+                print("Word must be 5 letters long")
+            elif guess.lower() not in words:  
+                print("Invalid word")
+            else:
+                break  # Valid guess, exit the loop
+        
+        clue = check_word(secret_word, guess)
+        clues.append((guess, clue))
+        
+        for i in range(len(guess)):
+            if clue[i] == "green":
+                display_utility.green(guess[i])
+            elif clue[i] == "yellow":
+                display_utility.yellow(guess[i])
+            else:
+                display_utility.grey(guess[i])
+        print()  
+
+        if guess == secret_word:
+            print(f"You win! You guessed the word: {secret_word}")
+            break
+    else:  # If the loop completes without breaking, the user ran out of guesses
+        print(f"Out of guesses, you loose! The secret word was: {secret_word}")
