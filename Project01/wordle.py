@@ -1,5 +1,3 @@
-import display_utility
-
 def check_word(secret, guess):
     output = [''] * len(guess) # Establish an output list of same length as guess
     secret_list = list(secret)
@@ -23,5 +21,13 @@ def check_word(secret, guess):
 
     return output
  
+def known_word(clues):
+    known = list("_____")  
 
+    for guess, clue in clues:  # Iterate over each (guess, clue) pair
+        for i in range(len(clue)):  # Iterate over each position in the clue
+            if clue[i] == 'green':  
+                known[i] = guess[i]
+
+    return ''.join(known)  # Convert the list back to a string
         
