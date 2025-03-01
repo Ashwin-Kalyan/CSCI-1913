@@ -1,5 +1,5 @@
 # Utility file for displaying wordle characters. Written by Daniel Kluver with support of various online documentation
-#  ansii escape sequences. This stuff is archaic, but fun!
+#  ansii escape sequences. This stuff is archaic, but fun! 
 
 def green(letter):
     """ Output one (or more) letters with a green background.
