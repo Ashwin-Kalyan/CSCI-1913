@@ -1,5 +1,5 @@
 # Obviously -- this file should run without a game of wordle happening. If that's not possible something is wrong!
-
+ 
 print('Test check_word')
 from wordle import check_word
 # Tests based largely on the examples in the pdf
