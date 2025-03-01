@@ -92,17 +92,18 @@ if __name__ == "__main__":
         clue = check_word(secret_word, guess)
         clues.append((guess, clue))
         
-        for i in range(len(guess)):
-            if clue[i] == "green":
-                display_utility.green(guess[i])
-            elif clue[i] == "yellow":
-                display_utility.yellow(guess[i])
-            else:
-                display_utility.grey(guess[i])
-        print()  
+        for guess, clue in clues: # Makes sure guess/clue history is shown with each guess
+            for i in range(len(guess)):
+                if clue[i] == "green":
+                    display_utility.green(guess[i])
+                elif clue[i] == "yellow":
+                    display_utility.yellow(guess[i])
+                else:
+                    display_utility.grey(guess[i])
+            print()  
 
         if guess == secret_word:
-            print(f"{secret_word}")
+            print(f"Answer: {secret_word}")
             break
     else:  # If the loop completes without breaking, the user ran out of guesses
-        print(f"{secret_word}")
+        print(f"Answer: {secret_word}")
