@@ -102,7 +102,7 @@ if __name__ == "__main__":
         print()  
 
         if guess == secret_word:
-            print(f"You win! You guessed the word: {secret_word}")
+            print(f"{secret_word}")
             break
     else:  # If the loop completes without breaking, the user ran out of guesses
-        print(f"Out of guesses, you loose! The secret word was: {secret_word}")
+        print(f"{secret_word}")
