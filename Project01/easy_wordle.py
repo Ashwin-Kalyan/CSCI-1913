@@ -1,9 +1,20 @@
+# @author Ashwin Kalyan
+
 from wordle import check_word
 import random
 import display_utility
 from words import words
 
 def filter_word_list(words, clues):
+    """
+    Creates a new list of potential secret words from the guess clues.
+
+    Args:
+        words (list): A list of words.
+        clues (list): A list of tuples, with each tuple being a guess (string) and the clues returned.
+    Return:
+        list: A new list containing only which words could be the secret word based off earlier clues. 
+    """
     filtered_words = []
     
     for word in words:
@@ -26,6 +37,9 @@ def filter_word_list(words, clues):
     return filtered_words
 
 if __name__ == "__main__":
+    """
+    Easy Wordle clone main game loop. Generates clues, displays the UI, and accounts for the attempt limit.
+    """
     secret_word = random.choice(words).upper()
     clues = []  
 

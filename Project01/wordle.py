@@ -1,8 +1,19 @@
+# @author Ashwin Kalyan
+
 from words import words
 import random
 import display_utility
 
 def check_word(secret, guess):
+    """
+    Checks each letter of the guessed word and compares it to the secret word. It then appends the results/clues to a list according to the rules of Wordle.
+
+    Args:
+        secret (str): The secret word that the player must guess. 
+        guess (str): The word that the user guesses.
+    Return:
+        list: A list containing the accuracy result of each letter guessed when compared to the secret word. 
+    """
     output = [''] * len(guess) # Establish an output list of same length as guess
     secret_list = list(secret)
     guess_list = list(guess)
@@ -26,6 +37,14 @@ def check_word(secret, guess):
     return output
  
 def known_word(clues):
+    """
+    Checks which guess letters are "green", or match the secret word, then appends that to a 5 letter string in their correct position.
+
+    Args:
+        clues (list): A list of tuples, with each tuple being a guess (string) and the clues returned.
+    Return:
+        str: A string containing correctly guessed and positioned letters in their correct positions, and "_" for incorrectly positioned/guessed letters. 
+    """
     known = list("_____")  
 
     for guess, clue in clues:  # Iterate over each (guess, clue) pair
@@ -36,6 +55,14 @@ def known_word(clues):
     return ''.join(known)  # Convert the list back to a string
         
 def no_letters(clues):
+    """
+    Creates a string of letters guessed by the player that are not in the secret word.
+
+    Args:
+        clues (list): A list of tuples, with each tuple being a guess (string) and the clues returned.
+    Return:
+        str: A string containing which guessed letters are not in the secret word.
+    """
     no_letters_set = set()  # Use a set to avoid duplicates
     yes_letters_set = set()  # Track letters that are confirmed to be in the word
 
@@ -57,6 +84,14 @@ def no_letters(clues):
     return ''.join(no_letters_list).upper()
 
 def yes_letters(clues):
+    """
+    Creates a string of letters guessed by the player that are in the secret word, regardless of position.
+
+    Args:
+        clues (list): A list of tuples, with each tuple being a guess (string) and the clues returned.
+    Return:
+        str: A string containing which guessed letters are in the secret word.
+    """
     yes_letters_set = set()  # Use a set to avoid duplicates
 
     for guess, clue in clues:  # Iterate over each (guess, clue) pair
@@ -70,6 +105,9 @@ def yes_letters(clues):
     return ''.join(yes_letters_list).upper()
 
 if __name__ == "__main__":
+    """
+    Wordle clone main game loop. Generates clues, displays the UI, and accounts for the attempt limit.
+    """
     secret_word = random.choice(words).upper()
 
     guesses = []
