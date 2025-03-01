@@ -31,3 +31,23 @@ def known_word(clues):
 
     return ''.join(known)  # Convert the list back to a string
         
+def no_letters(clues):
+    no_letters_set = set()  # Use a set to avoid duplicates
+    yes_letters_set = set()  # Track letters that are confirmed to be in the word
+
+    for guess, clue in clues:  # Iterate over each (guess, clue) pair
+        for i in range(len(clue)):  # Iterate over each position in the clue
+            if clue[i] == 'grey':
+                # Only add the letter if it's not in the yes_letters_set
+                if guess[i] not in yes_letters_set:
+                    no_letters_set.add(guess[i])
+            elif clue[i] == 'green' or clue[i] == 'yellow':
+                # If the letter is green or yellow, it's in the word
+                yes_letters_set.add(guess[i])
+
+    # Remove any letters from no_letters_set that are in yes_letters_set
+    no_letters_set -= yes_letters_set
+
+    # Sort alphabetically, convert the set to a sorted list, then to a string, then uppercase all letters
+    no_letters_list = sorted(no_letters_set)
+    return ''.join(no_letters_list).upper()
