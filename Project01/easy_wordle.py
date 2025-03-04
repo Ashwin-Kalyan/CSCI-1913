@@ -78,7 +78,10 @@ if __name__ == "__main__":
         if num_possible_words > 0:
             sample_size = min(5, num_possible_words)
             sample_words = random.sample(possible_words, sample_size)
-            print(f"{num_possible_words} words possible:\n{'\n'.join(sample_words)}")
+            print(f"{num_possible_words} words possible:")
+
+            for word in sample_words:
+                print(f"{''.join(word)}")
 
         # Check if the guess is correct
         if guess == secret_word:
