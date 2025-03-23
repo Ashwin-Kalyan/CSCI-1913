@@ -1,24 +1,14 @@
-/**
- * Shape Drawer class file.
- * CSCI 1913.
- * Written by Min Namgung, Daniel Kluver, and Peter Wang
- * Provided.
- *
- * While the internal workings of this class are complicated, the use of this
- * class is not. It is a deliberate challenge for you to read through the documentation
- * and function names of this class to figure out how to use it.
- */
 
 
-import javax.imageio.ImageIO;
-import java.awt.Graphics2D;
+
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import static java.awt.image.BufferedImage.TYPE_INT_RGB;
 import java.io.File;
 import java.io.IOException;
-
-import static java.awt.image.BufferedImage.TYPE_INT_RGB;
+import javax.imageio.ImageIO;
 
 /**
  * The Shape Drawer class most accurate represents a _drawning canvas_

@@ -1,3 +1,4 @@
+
 /**
  * Ring class.
  * CSCI 1913.

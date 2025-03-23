@@ -1,3 +1,4 @@
+
 /**
  * Point class file.
  * CSCI 1913.

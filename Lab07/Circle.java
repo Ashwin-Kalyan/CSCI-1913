@@ -3,7 +3,7 @@
  * CSCI 1913.
  * Written by Min Namgung and Daniel Kluver
  * Provided, with changes expected
- * Changes made by: TODO TODO TODO TODO: fill your name in!
+ * Changes made by: Ashwin Kalyan
  *
  * A circle is represented by a Point object (the center) and a radius.
  */
@@ -25,12 +25,11 @@ public class Circle {
     }
 
     public double getArea() {
-        // TODO
-        return 0;
+        return Math.PI * Math.pow(radius, 2);
     }
 
     public static double getArea(Circle c) {
-        return 0;
+        return Math.PI * Math.pow(c.getRadius(), 2);
     }
 
     /**
