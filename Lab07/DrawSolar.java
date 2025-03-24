@@ -32,6 +32,6 @@ public class DrawSolar {
         canvas.setFill(Color.CYAN);
         canvas.draw(earth);
 
-        canvas.writeToFile("solarSystem.png");    
+        canvas.writeToFile("solar.png");    
     }
 }

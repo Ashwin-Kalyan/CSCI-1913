@@ -8,7 +8,7 @@
  * A circle is represented by a Point object (the center) and a radius.
  */
 
-public class Circle {
+public class Circle { 
     private Point center;
     private double radius;
 
@@ -23,11 +23,18 @@ public class Circle {
         this.center = center;
         this.radius = radius;
     }
-
+    /**
+     * Compute the area of the circle.
+     * @return - the area of the circle.
+     */
     public double getArea() {
         return Math.PI * Math.pow(radius, 2);
     }
-
+    /**
+     * Compute the area of a specified Circle object.
+     * @param c - a Circle object.
+     * @return - the area of the circle.
+     */
     public static double getArea(Circle c) {
         return Math.PI * Math.pow(c.getRadius(), 2);
     }
