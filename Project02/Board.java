@@ -76,16 +76,30 @@ public class Board {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append("------------------");
+        // Print from top row to bottom row (row 3 to row 0)
         for (int row = 3; row >= 0; row--) {
             for (int col = 0; col < 4; col++) {
+                sb.append("|");
                 if (board[row][col] != null) {
-                    sb.append(board[row][col].toFancyString()).append(" ");
+                    // Center the card in a 4-character space
+                    String cardStr = board[row][col].toFancyString();
+                    sb.append(String.format("%2s", cardStr));
                 } else {
-                    sb.append("[] ");
+                    sb.append("  ");  // Two spaces for empty slot
+                }
+                sb.append("|");
+                // Add space between columns, but not after last column
+                if (col < 3) {
+                    sb.append(" ");
                 }
             }
-            sb.append("\n");
+            // Add newline after each row, except after last row
+            if (row > 0) {
+                sb.append("\n");
+            }
         }
+        sb.append("------------------");
         return sb.toString();
     }
 }
