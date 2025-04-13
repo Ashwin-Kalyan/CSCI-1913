@@ -25,7 +25,7 @@ public class Board {
         if (column < 0 || column >= 4) return false;
         
         // Check if column is full
-        if (board[0][column] != null) return false;
+        if (board[3][column] != null) return false;
         
         Card topCard = getTopCard(column);
         // Can play on empty column or if card rank is >= top card's rank
@@ -53,21 +53,19 @@ public class Board {
         for (int col = 0; col < 4; col++) {
             if (checkConnected(board[0][col], board[1][col], board[2][col], board[3][col])) return true;
         }
-
-        // Check diagonals, return true if any diagonal is connected
+        
+        // Check diagonals
         return checkConnected(board[0][0], board[1][1], board[2][2], board[3][3]) ||
-                checkConnected(board[0][3], board[1][2], board[2][1], board[3][0]);
+               checkConnected(board[0][3], board[1][2], board[2][1], board[3][0]);
     }
 
     private boolean checkConnected(Card c1, Card c2, Card c3, Card c4) {
         if (c1 == null || c2 == null || c3 == null || c4 == null) return false;
-        
-        return (areConnected(c1, c2) && areConnected(c2, c3) && areConnected(c3, c4));
+        return areConnected(c1, c2) && areConnected(c2, c3) && areConnected(c3, c4);
     }
 
     private boolean areConnected(Card a, Card b) {
         if (a == null || b == null) return false;
-        
         return a.getSuitNum() == b.getSuitNum() || 
                a.getRankNum() == b.getRankNum() || 
                Math.abs(a.getRankNum() - b.getRankNum()) == 1;
@@ -76,7 +74,7 @@ public class Board {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("------------------");
+        sb.append("------------------\n");
         // Print from top row to bottom row (row 3 to row 0)
         for (int row = 3; row >= 0; row--) {
             for (int col = 0; col < 4; col++) {
@@ -99,7 +97,7 @@ public class Board {
                 sb.append("\n");
             }
         }
-        sb.append("------------------");
+        sb.append("\n------------------\n");
         return sb.toString();
     }
 }
