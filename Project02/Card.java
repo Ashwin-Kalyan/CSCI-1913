@@ -1,12 +1,25 @@
+// CSCI 1913 - Project 2
+// @author: Ashwin Kalyan
+
+/**
+ * Represents a single playing card.
+ * The card has a rank (1-13) and a suit (1-4).
+ * The card is immutable.
+ */
 public class Card {
     private int rank; // 1 -> Ace, 2 -> 2, ..., 10 -> 10, 11 -> Jack, 12 -> Queen, 13 -> King
     private int suit; // 1 -> Spades, 2 -> Hearts, 3 -> Clubs, 4 -> Diamonds
 
+    /**
+     * Constructor for Card class.
+     * @param rank - the rank of the card (1-13)
+     * @param suit - the suit of the card (1-4)
+     */
     public Card(int rank, int suit) {
         if ((rank < 1 || rank > 13) || (suit < 1 || suit > 4)) {
             System.out.println("Invalid Card");
-            this.rank = 1;
-            this.suit = 1;
+            this.rank = 1; // default to Ace if rank invalid
+            this.suit = 1; // default to Spades if suit invalid
         } else {
             this.rank = rank;
             this.suit = suit;
@@ -21,6 +34,9 @@ public class Card {
         return suit;
     }
 
+    /**
+     * @return - the name of the rank of the card
+     */
     public String getRankName() {
         return switch (rank) {
             case 1 -> "Ace";
@@ -40,6 +56,9 @@ public class Card {
         };
     }
 
+    /**
+     * @return - the name of the suit of the card
+     */
     public String getSuitName() {
         return switch (suit) {
             case 1 -> "Spades";
@@ -50,11 +69,21 @@ public class Card {
         };
     }
 
+    /**
+     * @return - the string representation of the card. 
+     * The string representation is in the format "Rank of Suit".
+     * For example, "Ace of Spades", "Two of Hearts", etc.
+     */
     @Override
     public String toString() {
         return getRankName() + " of " + getSuitName();
     }
     
+    /**
+     * Checks if two cards are equal.
+     * Two cards are equal if they have the same rank and suit.
+     * @param obj - the object to compare to
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -63,6 +92,10 @@ public class Card {
         return rank == card.rank && suit == card.suit;
     }
 
+    /**
+     * Fancy display utility courtesy of Professor Kluver.
+     * @return a string representation of the card in a fancy format.
+     */
     public String toVeryFancyString() {
         // we're getting into some deep magic with this one.
         // Don't be too worried if it doesn't work on your computer.
@@ -94,6 +127,10 @@ public class Card {
         return retval + letter_part_one + letter_part_two + " \u001B[0m";
     }
 
+    /**
+     * Display utility courtesy of Professor Kluver.
+     * @return a string representation of the card in a fancy format.
+     */
     public String toFancyString() {
         String suits = "♠♥♣♦";
         String ranks = "A23456789⑩JQK";
