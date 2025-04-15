@@ -14,7 +14,6 @@ public class BasicPlayer implements Player {
      * @param board - the current state of the game board.
      * @return the column index where the card can be played, or -1 if no legal move is found.
      */
-    
     @Override
     public int nextMove(Card card, Board board) {
         for (int col = 0; col < 4; col++) {
