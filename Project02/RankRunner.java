@@ -1,3 +1,6 @@
+// CSCI 1913 - Project 2
+// @author: Ashwin Kalyan
+
 /**
  * This AI attempts to make columns of cards with the same number, 
  * or rows of cards that are increasing/decreasing in value.
