@@ -1,8 +1,24 @@
+// CSCI 1913 - Project 2
+// @author: Ashwin Kalyan
+
+/**
+ * ConnectFwar is a card game where a player draws cards from a deck
+ * and plays them on a board.
+ * This is the main game loop that handles the core game logic.
+ */
 public class ConnectFwar {
+    /**
+     * Main method to start the game.
+     * It creates a new deck and board, and repeatedly draws cards from the deck.
+     * The player is prompted to make a move with the drawn card.
+     * If the player plays the card successfully, it checks for a win state.
+     * If the board is full or the deck is empty, the game ends.
+     * @param player - the player who will play the game
+     * @return - the score of the player, which is the number of cards remaining in the deck
+     */
     public static int play(Player player) {
         Deck deck = new Deck();
         Board board = new Board();
-        int score = 0;
 
         while (true) { 
             Card card = deck.draw();
