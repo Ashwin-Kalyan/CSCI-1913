@@ -1,3 +1,6 @@
+// CSCI 1913 - Project 2
+// @author: Ashwin Kalyan
+
 import java.util.Scanner;
 
 /**
