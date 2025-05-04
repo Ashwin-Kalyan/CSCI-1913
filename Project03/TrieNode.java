@@ -13,6 +13,8 @@ public class TrieNode<T> {
     /**
      * Constructs a new TrieNode with null data and an array of child nodes.
      */
+
+    @SuppressWarnings("unchecked")
     public TrieNode() {
         this.data = null;
         this.children = (TrieNode<T>[]) new TrieNode[26]; // 26 letters in alphabet
