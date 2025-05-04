@@ -1,3 +1,6 @@
+// CSCI 1913 - Project 3
+// @author: Ashwin Kalyan
+
 import java.util.Random;
 
 /**
